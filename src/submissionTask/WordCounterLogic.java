@@ -47,7 +47,7 @@ public class WordCounterLogic {
     /*
      * Method finds the longest word in a single line.
      * Compares to the longest previous word.
-     * Sets the new longest word over all.
+     * Stores the new longest word to compare to next line.
      * @param input - one user entered line.
      */
     public void findLongestWord(String input) {
