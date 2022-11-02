@@ -1,5 +1,10 @@
 package submissionTask;
 
+/**
+ * Contains unit tests for the WordCounterLogic Class.
+ */
+
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertEquals;

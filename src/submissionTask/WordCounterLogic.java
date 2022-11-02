@@ -1,5 +1,11 @@
 package submissionTask;
 
+/**
+ * Logic class for word counter program
+ *
+ * @Attr lines, words, chars and longestWord.
+ */
+
 public class WordCounterLogic {
 
     private int lines, words, chars;    //Attributes
@@ -8,6 +14,7 @@ public class WordCounterLogic {
 
     /*
      * Method counts number of lines
+     * @param input - one user entered line.
      */
     public void countLines(String input) {
         lines++;
@@ -15,6 +22,7 @@ public class WordCounterLogic {
 
     /*
      * Method counts number of words
+     * @param input - one user entered line.
      */
     public void countWords(String input) {
 
@@ -27,6 +35,7 @@ public class WordCounterLogic {
 
     /*
      * Method counts number of characters
+     * @param input - one user entered line.
      */
     public void countChars(String input) {
 
@@ -95,8 +104,8 @@ public class WordCounterLogic {
 
             }
 
-        } else {
-            for (int i = 0; i < input.length(); i++) { //If there is only one word (No spaces)
+        } else {  //If there is only one word (No spaces)
+            for (int i = 0; i < input.length(); i++) {
 
                 if (((input.charAt(i) == ' ') && (input.charAt(i - 1) != ' ')) || (i == (input.length() - 1))) {
 

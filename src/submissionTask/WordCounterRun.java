@@ -1,7 +1,11 @@
 package submissionTask;
 
-import java.util.Scanner;
+/**
+ * Program that counts lines, words and characters entered by User.
+ * Also finds the longest word in our lines.
+ */
 
+import java.util.Scanner;
 public class WordCounterRun {
 
     public static void main(String[] args) {
