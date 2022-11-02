@@ -11,9 +11,10 @@ public class WordCounterRun {
 
         String userInput = "";
 
-        System.out.printf("%n%s", "#   This program counts number of lines, words and characters you write.  #");
-        System.out.printf("%n%s", "#              It will also find the longest word you wrote.              #");
-        System.out.printf("%n%s%n", "# You can start writing on the line below. When done, write the word stop #");
+        System.out.printf("%n%s", "#    This program counts number of lines, words and characters you write.    #");
+        System.out.printf("%n%s", "#               It will also find the longest word you wrote.                #");
+        System.out.printf("%n%s", "# When done, write the word stop. (Line containing stop will not be counted) #");
+        System.out.printf("%n%s%n", "#                  You can start writing on the line below.                  #");
 
         while (!wcl.checkStop(userInput)) {
 
