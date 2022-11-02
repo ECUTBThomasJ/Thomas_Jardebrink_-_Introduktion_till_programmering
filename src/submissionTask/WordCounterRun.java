@@ -6,11 +6,14 @@ public class WordCounterRun {
 
     public static void main(String[] args) {
 
+        //Declaring objects
         Scanner keyboard = new Scanner(System.in);
         WordCounterLogic wcl = new WordCounterLogic();
 
+        //Declare variable
         String userInput = "";
 
+        //Program startprompt
         System.out.printf("%n%s", "#    This program counts number of lines, words and characters you write.    #");
         System.out.printf("%n%s", "#               It will also find the longest word you wrote.                #");
         System.out.printf("%n%s", "# When done, write the word stop. (Line containing stop will not be counted) #");

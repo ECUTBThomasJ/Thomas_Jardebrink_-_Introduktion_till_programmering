@@ -6,10 +6,16 @@ public class WordCounterLogic {
 
     private String longestWord = "";
 
+    /*
+     * Method counts number of lines
+     */
     public void countLines(String input) {
         lines++;
     }
 
+    /*
+     * Method counts number of words
+     */
     public void countWords(String input) {
 
         for (int j = 0; j < input.length(); j++) {
@@ -19,6 +25,9 @@ public class WordCounterLogic {
         }
     }
 
+    /*
+     * Method counts number of characters
+     */
     public void countChars(String input) {
 
         for (int i = 0; i < input.length(); i++) {
@@ -27,12 +36,19 @@ public class WordCounterLogic {
 
     }
 
+    /*
+     * Method finds the longest word in a single line.
+     * Compares to the longest previous word.
+     * Sets the new longest word over all.
+     * @param input - one user entered line.
+     */
     public void findLongestWord(String input) {
         String currentLongest = longestWord;
 
         //Method variables to handle finding the longest word
-        int a = 0, b = 0, c = 0, d = 0;
+        int startOfWord = 0, endOfWord = 0, lengthOfWord = 0, previousWordLength = 0;
 
+        //Section removes spaces at beginning and end of line
         if (input.charAt(0) == ' ') {
             input = input.replaceFirst(" ", "");
         }
@@ -42,32 +58,32 @@ public class WordCounterLogic {
             input = input.substring(0, input.length() - 1);
         }
 
-
-        if (input.contains(" ")) {
+        // Section finds and compares words to find the longest word.
+        if (input.contains(" ")) { //if there are more than one word in the line.
 
             for (int i = 0; i < input.length(); i++) {
 
                 if ((i != 0) && (input.charAt(i) == ' ') && (input.charAt(i - 1) != ' ') || (i == (input.length() - 1))) {
 
-                    a = b;
-                    b = i;
-                    c = b - a;
+                    startOfWord = endOfWord;
+                    endOfWord = i;
+                    lengthOfWord = endOfWord - startOfWord;
 
-                    if (c > d) {
-                        d = c;
-                        if (currentLongest.length() < d) {
+                    if (lengthOfWord > previousWordLength) {
+                        previousWordLength = lengthOfWord;
+                        if (currentLongest.length() < previousWordLength) {
                             currentLongest = "";
 
-                            if ((a > 1) && (i < (input.length() - 1))) {
-                                for (int j = a; j < b - 1; j++) {
+                            if ((startOfWord > 1) && (i < (input.length() - 1))) {
+                                for (int j = startOfWord; j < endOfWord - 1; j++) {
                                     currentLongest += input.charAt(j + 1);
                                 }
-                            } else if ((a > 1) && (i == (input.length() - 1))) {
-                                for (int j = a; j < b; j++) {
+                            } else if ((startOfWord > 1) && (i == (input.length() - 1))) {
+                                for (int j = startOfWord; j < endOfWord; j++) {
                                     currentLongest += input.charAt(j + 1);
                                 }
                             } else {
-                                for (int j = a; j < d; j++) {
+                                for (int j = startOfWord; j < previousWordLength; j++) {
                                     currentLongest += input.charAt(j);
                                 }
                             }
@@ -80,29 +96,29 @@ public class WordCounterLogic {
             }
 
         } else {
-            for (int i = 0; i < input.length(); i++) {
+            for (int i = 0; i < input.length(); i++) { //If there is only one word (No spaces)
 
                 if (((input.charAt(i) == ' ') && (input.charAt(i - 1) != ' ')) || (i == (input.length() - 1))) {
 
-                    a = b;
-                    b = (i + 1);
-                    c = b - a;
+                    startOfWord = endOfWord;
+                    endOfWord = (i + 1);
+                    lengthOfWord = endOfWord - startOfWord;
 
-                    if (c > d) {
-                        d = c;
-                        if (currentLongest.length() < d) {
+                    if (lengthOfWord > previousWordLength) {
+                        previousWordLength = lengthOfWord;
+                        if (currentLongest.length() < previousWordLength) {
                             currentLongest = "";
 
-                            if ((a > 1) && (i < (input.length() - 1))) {
-                                for (int j = a; j < b - 1; j++) {
+                            if ((startOfWord > 1) && (i < (input.length() - 1))) {
+                                for (int j = startOfWord; j < endOfWord - 1; j++) {
                                     currentLongest += input.charAt(j + 1);
                                 }
-                            } else if ((a > 1) && (i == (input.length() - 1))) {
-                                for (int j = a; j < b; j++) {
+                            } else if ((startOfWord > 1) && (i == (input.length() - 1))) {
+                                for (int j = startOfWord; j < endOfWord; j++) {
                                     currentLongest += input.charAt(j + 1);
                                 }
                             } else {
-                                for (int j = a; j < d; j++) {
+                                for (int j = startOfWord; j < previousWordLength; j++) {
                                     currentLongest += input.charAt(j);
                                 }
                             }
@@ -118,22 +134,37 @@ public class WordCounterLogic {
         longestWord = currentLongest;
     }
 
+    /*
+     * Method returns number of lines
+     */
     public int getLines() {
         return lines;
     }
 
+    /*
+     * Method returns number of words
+     */
     public int getWords() {
         return words;
     }
 
+    /*
+     * Method returns the longest word over all lines
+     */
     public String getLongestWord() {
         return longestWord;
     }
 
+    /*
+     * Method returns number of characters
+     */
     public int getCharacters() {
         return chars;
     }
 
+    /*
+     * Method checks if line contains the word stop.
+     */
     public boolean checkStop(String input) {
 
         boolean containsStop = false;
