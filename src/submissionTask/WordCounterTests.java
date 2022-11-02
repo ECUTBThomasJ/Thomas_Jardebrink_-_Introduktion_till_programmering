@@ -1,6 +1,6 @@
 package submissionTask;
 
-/**
+/*
  * Contains unit tests for the WordCounterLogic Class.
  */
 

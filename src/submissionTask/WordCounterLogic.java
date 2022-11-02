@@ -1,8 +1,7 @@
 package submissionTask;
 
-/**
+/*
  * Logic class for word counter program
- *
  * @Attr lines, words, chars and longestWord.
  */
 

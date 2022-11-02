@@ -1,6 +1,6 @@
 package submissionTask;
 
-/**
+/*
  * Program that counts lines, words and characters entered by User.
  * Also finds the longest word in our lines.
  */
@@ -23,6 +23,7 @@ public class WordCounterRun {
         System.out.printf("%n%s", "# When done, write the word stop. (Line containing stop will not be counted) #");
         System.out.printf("%n%s%n", "#                  You can start writing on the line below.                  #");
 
+        //Get input from user and check in object wcl.
         while (!wcl.checkStop(userInput)) {
 
             System.out.printf("%s", "#: ");
@@ -39,6 +40,7 @@ public class WordCounterRun {
 
         }
 
+        //Program end prompt with results.
         System.out.printf("%n%s%s%s", "You wrote ", wcl.getLines(), " lines of text.");
         System.out.printf("%n%s%s%s", "You wrote ", wcl.getWords(), " individual words.");
         System.out.printf("%n%s%s%s", "You wrote ", wcl.getCharacters(), " individual characters.");
