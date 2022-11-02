@@ -96,12 +96,9 @@ public class WordCounterLogic {
                                     currentLongest += input.charAt(j);
                                 }
                             }
-
-
                         }
                     }
                 }
-
             }
 
         } else {  //If there is only one word (No spaces)
@@ -131,15 +128,11 @@ public class WordCounterLogic {
                                     currentLongest += input.charAt(j);
                                 }
                             }
-
-
                         }
                     }
                 }
-
             }
         }
-
         longestWord = currentLongest;
     }
 
