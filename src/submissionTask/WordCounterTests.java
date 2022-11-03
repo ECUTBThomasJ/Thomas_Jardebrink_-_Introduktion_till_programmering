@@ -143,7 +143,7 @@ public class WordCounterTests {
         //Arrange
         WordCounterLogic wcl = new WordCounterLogic();
 
-        String userInput = "hippopotamus ";
+        String userInput = "Hippopotamus ";
 
         wcl.findLongestWord(userInput);
 
@@ -151,7 +151,7 @@ public class WordCounterTests {
 
         wcl.findLongestWord(userInput);
 
-        String expected = "hippopotamus";
+        String expected = "Hippopotamus";
 
         //Act
         String actual = wcl.getLongestWord();
@@ -225,9 +225,54 @@ public class WordCounterTests {
         //Arrange
         WordCounterLogic wcl = new WordCounterLogic();
 
-        String userInput = "banana fish potato";
+        String userInput = "banana fish STOPPKLOSS";
 
         boolean expected = false;
+
+        //Act
+        boolean actual = wcl.checkStop(userInput);
+
+        //Assert
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void testStopLineOnly() {
+        //Arrange
+        WordCounterLogic wcl = new WordCounterLogic();
+
+        String userInput = "stop";
+
+        boolean expected = true;
+
+        //Act
+        boolean actual = wcl.checkStop(userInput);
+
+        //Assert
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void testStopLineStart() {
+        //Arrange
+        WordCounterLogic wcl = new WordCounterLogic();
+
+        String userInput = "stop all the clocks";
+
+        boolean expected = true;
+
+        //Act
+        boolean actual = wcl.checkStop(userInput);
+
+        //Assert
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void testStopLineEnd() {
+        //Arrange
+        WordCounterLogic wcl = new WordCounterLogic();
+
+        String userInput = "All the clocks should stop";
+
+        boolean expected = true;
 
         //Act
         boolean actual = wcl.checkStop(userInput);

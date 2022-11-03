@@ -170,8 +170,18 @@ public class WordCounterLogic {
 
         boolean containsStop = false;
 
-        if (input.toLowerCase().contains("stop")) {
+        input = input.toLowerCase();
+
+        if (input.equals("stop")) {
             containsStop = true;
+        } else if ((input.contains(" stop")) && (input.charAt(input.length() - 1) == 'p')){
+            containsStop = true;
+        } else if (input.contains("stop ")) {
+            containsStop = true;
+        } else if (input.contains(" stop ")) {
+            containsStop = true;
+        } else {
+            containsStop = false;
         }
 
         return containsStop;
